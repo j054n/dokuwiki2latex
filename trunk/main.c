@@ -25,8 +25,8 @@ int main(int argc, char *argv[]) {
 
     for ( pocet_arg = 1 ; pocet_arg < (argc -1) ; pocet_arg++ ) {
         vystupLen = strlen(argv[pocet_arg]);
-        if (vystupLen == 7) {
-            if (strcmp(argv[pocet_arg],"--multi") == 0) {
+        if (vystupLen == 2) {
+            if (strcmp(argv[pocet_arg],"-o") == 0) {
                 multi = pocet_arg;
             }
             vystupNazev = malloc((strlen(argv[pocet_arg]) + 5) * sizeof(char));
@@ -39,8 +39,8 @@ int main(int argc, char *argv[]) {
         }
     }
     if (argc <= 1) {
-        fprintf(stderr,"Použití:\n doku2latex dokument1.txt dokument2.txt\n   vytvori dokument1.tex a dokument2.tex\n");
-        fprintf(stderr," doku2latex dokument1.txt dokument2.txt --multi vystup.tex\n   vytvori vystup.tex ve kterem bude preformatovany obsah obou vstupnich souboru \n");
+        fprintf(stderr,"dokuwiki2latex - convert dokuwiki to LaTeX\nAuthors: Jiri Nemec <nemec.jiri@gmail.com>\n         Pavel Kuttelwascher <Pavel.ku@tiscali.cz>\n\n");
+        fprintf(stderr," dokuwiki2latex document1.txt document2.txt -o output.tex\n   vytvori vystup.tex ve kterem bude preformatovany obsah obou vstupnich souboru \n");
     }
     if (multi == 0) {
         for ( pocet_arg = 1 ; pocet_arg < argc ; pocet_arg++ ) { // pro vice souboru na vstupu
